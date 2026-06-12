@@ -1,104 +1,94 @@
 # Gemini Robotics-ER 1.5 Object Recognition Demo
 
-A simple Python demo for object recognition and reasoning using Google's advanced Vision-Language Model, **Gemini Robotics-ER 1.5**.
-
-***
+A simple Python demo for object recognition and scene reasoning using Google's **Gemini Robotics-ER 1.5** vision language model.
 
 ## Features
 
-- Detect objects in images with Gemini Robotics-ER 1.5
-- Returns highly-accurate scene descriptions and object names
-- Outputs rich reasoning about the image (e.g. relationships, affordances)
-- Safe: does **not** expose your API key, reads it from an environment variable
-- Ready for extension with bounding boxes and more advanced reasoning prompts
+- Detect and describe objects in images with Gemini Robotics-ER 1.5
+- Returns scene descriptions, object names, and spatial reasoning
+- API key loaded from an environment variable (never hard coded)
+- Easy to extend with custom prompts for affordances, task decomposition, and bounding boxes
 
-***
+## Requirements
 
-## Getting Started
+- Python 3.8+
+- A [Google AI Studio](https://aistudio.google.com/) API key
 
-### 1. Clone this repo
-
-
-### 2. Install dependencies
+## Installation
 
 ```bash
+git clone https://github.com/chiranjivaraoatluri13/gemini-robotics-er-demo.git
+cd gemini-robotics-er-demo
 pip install google-generativeai
 ```
 
-### 3. Get your Gemini API key
+## Setup
 
-- Sign up at [Google AI Studio](https://aistudio.google.com/)
-- Copy your API key
+Set your Gemini API key as an environment variable.
 
-### 4. Set your Gemini API key as an environment variable
+**Windows (cmd):**
 
-#### **Windows:**
 ```cmd
-set GEMINI_API_KEY=your_real_api_key
+set GEMINI_API_KEY=your_api_key_here
 ```
 
-#### **Mac/Linux:**
+**Windows (PowerShell):**
+
+```powershell
+$env:GEMINI_API_KEY = "your_api_key_here"
+```
+
+**macOS / Linux:**
+
 ```bash
-export GEMINI_API_KEY=your_real_api_key
+export GEMINI_API_KEY=your_api_key_here
 ```
 
-### 5. Add an image to test
+Place a test image named `test_image.jpg` in the project folder (or change `filename` in `test_gemini.py`).
 
-Place your image in the repo folder and name it `test_image.jpg`  
-(Or update `filename` in the script for your own image)
-
-### 6. Run the demo
+## Usage
 
 ```bash
 python test_gemini.py
 ```
 
-***
+Example output:
 
-## Output
+```
+Gemini Robotics-ER 1.5 Output
 
-- The script prints Gemini's object recognition and reasoning output directly in your terminal.
-- You can easily customize the `prompt` in `test_gemini.py` to try advanced use cases (task decomposition, safety, step-by-step reasoning).
-
-***
-
-## Example Prompt
-
-```python
-prompt = ("Detect all objects in this image. For each, provide its name "
-          "and, if possible, bounding box coordinates.")
+[Object list and scene reasoning printed here]
 ```
 
-***
+## Customizing prompts
 
-## Customization
+Edit the `prompt` variable in `test_gemini.py`:
 
-- Try different prompt strings to explore Gemini’s capabilities:
-  - Object recognition
-  - Affordance detection
-  - Task decomposition
-  - Scene reasoning
-- You can add support for bounding box visualization with Pillow (see issues for ideas).
+```python
+prompt = (
+    "Detect all objects in this image. For each, provide its name "
+    "and, if possible, bounding box coordinates."
+)
+```
 
-***
+Try prompts for affordance detection, safety analysis, or step by step task decomposition.
 
 ## Security
 
-- **Never share your API key in the code**—only use environment variables.
-- This approach is safe for public repos and collaborative projects.
+Never commit your API key. Always use environment variables for credentials.
 
-***
+## Project structure
+
+```
+gemini-robotics-er-demo/
+├── test_gemini.py    # Main demo script
+└── README.md
+```
 
 ## License
 
-MIT (or your preferred license)
+MIT
 
-***
+## Author
 
-## Credits
-
-Created by [YourName]  
-Inspired by Google Gemini Robotics-ER 1.5 and modern VLM research.
-
-***
-
+[CHIRANJIVA RAO ATLURI](https://github.com/chiranjivaraoatluri13)
